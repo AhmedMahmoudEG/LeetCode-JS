@@ -4,6 +4,7 @@
  */
 var merge = function(intervals) {
     //first we need to sort the intervals 
+    //If we don’t sort makes no sense — we can’t guarantee overlaps.
     //space O(1)
     //time O(nlogn)
     intervals = intervals.sort((a,b)=>a[0]-b[0]);
