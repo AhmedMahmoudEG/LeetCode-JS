@@ -13,12 +13,12 @@
 var isBalanced = function(root) {
     function height(node){
         if(!node) return 0
-        return 1+ Math.max(height(node.left),height(node.right))
+        const left=height(node.left);
+        const right= height(node.right)
+        if(left == -1||right ==-1) return -1
+        if(Math.abs(left-right)> 1) return -1
+
+        return 1 + Math.max(left,right)
     }
-    //base case 
-    if(!root) return true
-    const leftSide = height(root.left);
-    const rightSide = height(root.right);
-    if(Math.abs(leftSide-rightSide) > 1) return false
-    return isBalanced(root.left)&&isBalanced(root.right)
+    return height(root) !==-1
 };
