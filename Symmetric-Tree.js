@@ -12,17 +12,11 @@
  */
 var isSymmetric = function(root) {
     if(!root) return true
-    //helper function to check each side is the same 
-    //same answer of same tree problem but compare the mirror nodes 
-    // t1.left with t2.right and t1.right with t2.left
-    function isMirror(t1,t2){
-        if(!t1&&!t2) return true
-        if(!t1||!t2) return false
-        if (t1.val !== t2.val) return false;
-
-        //recall
-        return isMirror(t1.left,t2.right)&&isMirror(t1.right,t2.left)
-
+    function isMirror(l,r){
+        if(!l&&!r)return true
+        if(!l||!r)return false
+        if(l.val!=r.val) return false
+        return isMirror(l.left,r.right)&&isMirror(l.right,r.left)
     }
-        return isMirror(root.left,root.right)
+    return isMirror(root.left,root.right)
 };
