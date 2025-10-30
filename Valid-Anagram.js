@@ -10,11 +10,17 @@ var isAnagram = function(s, t) {
         map.set(s[i], (map.get(s[i]) || 0) + 1);    }
     //console.log(map)
     //console.log(map.get(t[0]))
-    for (let char of t) {
-        if (!map.has(char) || map.get(char) === 0) {
-            return false;
+    for(let i=0;i<t.length;i++){
+        if(map.get(t[i])==undefined){
+            return false
+
+        } else{
+            map.set(t[i],map.get(t[i]) -1)
         }
-        map.set(char, map.get(char) - 1);
+       // console.log(map.get(t[i]))
+    }
+    for([key,value] of map.entries()){
+        if(value !=0) return false
     }
     return true
 };
