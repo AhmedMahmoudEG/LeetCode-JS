@@ -3,14 +3,18 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-    let closed= {'}':'{',')':'(',']':'['}
-    let stack=[]
-    for(let char of s){
-        if(char=='('||char=='['||char=='{'){
-            stack.push(char)
-        }else if(stack[stack.length-1] ==closed[char]){
+    let stack =[]
+    let map = {')':'(',']':'[','}':'{'}
+    for(let ch of s){
+        //"()[]{}"  ---> ()
+        // ->
+        if(!map[ch]) stack.push(ch)
+        else if(map[ch]==stack[stack.length-1]){
+       // console.log(map[ch])
             stack.pop()
-        }else stack.push(char)
+        } else return false
+       // stack.push(ch)
     }
-    return stack.length===0
+
+    return stack.length ==0
 };
