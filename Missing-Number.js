@@ -4,20 +4,26 @@
  */
 var missingNumber = function(nums) {
     let n = nums.length;
-    let expectedSum = (n*(n+1)) / 2 
-    let acutalSum = nums.reduce((acc,num)=>acc+num,0)    
-    return expectedSum - acutalSum
-    //my solution O(n^2)
+    let expectedSum = n*(n+1) /2 
+    let currentSum = nums.reduce((a,b)=>a+b,0)
+    console.log(expectedSum)
+    return expectedSum - currentSum
+    //O(n2)
     /*
-    let i =0;
+    for(let i=0;i<nums.length;i++){
+        if(!nums.includes(i)) return i
+    }
+    return nums.length;
+    */
+    /*
+    //(nlogn)
+    nums = nums.sort((a,b)=>a-b);
     let n = nums.length;
-    while(i<n){
-        console.log(i)
-        if(!nums.includes(i)){
+    for(let i =0;i<n;i++){
+        if(nums[i]!=i){
             return i
         }
-        i++
     }
-    return i;
+    return n
     */
 };
