@@ -1,14 +1,15 @@
-/**
- * @param {string} haystack
- * @param {string} needle
- * @return {number}
- */
-var strStr = function(haystack, needle) {
-    if(needle==\\) return 0
-    for (let i = 0; i <= haystack.length - needle.length; i++) {
-        if (haystack.slice(i, i + needle.length) === needle) {
-            return i;
-        }
-    }
-    return -1
-};
+1/**
+2 * @param {string} haystack
+3 * @param {string} needle
+4 * @return {number}
+5 */
+6var strStr = function(haystack, needle) {
+7
+8    let n = haystack.length
+9    for(let i =0;i<=n-needle.length;i++){
+10         if (haystack.slice(i, i + needle.length) === needle) {
+11            return i;
+12        }
+13    }
+14    return -1
+15};
