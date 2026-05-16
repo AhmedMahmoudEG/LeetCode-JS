@@ -1,3 +1,5 @@
-# Write your MySQL query statement below
-select firstName, lastName,COALESCE(city, Null) AS city,
-  COALESCE(state, Null) AS state FROM Person LEFT  join Address on Person.personId= address.personId 
+1# Write your MySQL query statement below
+2select p.firstName , p.lastName , a.city , a.state 
+3from person p
+4left join address a on p.personId = a.personid
+5
