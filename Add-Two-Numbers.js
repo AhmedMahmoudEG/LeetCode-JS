@@ -1,34 +1,32 @@
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} l1
- * @param {ListNode} l2
- * @return {ListNode}
- */
-var addTwoNumbers = function(l1, l2) {
-    let l3 =new ListNode(0);
-    let current = l3
-    let carry = 0;
-    while(l1!=null||l2!=null||carry!==0){
-        let x = l1 ? l1.val : 0; // لو اول ليست فيها هات الرقم الفاليو مفهاش حط صفر
-        let y = l2 ? l2.val : 0;
-        
-        let sum = x + y + carry; 
-        carry = Math.floor(sum / 10);  //باقي قسم المجموع لو كان عشرة ف الكاري هيبقى ب 1
-
-
-        current.next = new ListNode(sum % 10); //اي حاجة مود ال10 ب نفسها معدا العشرة هتبقى ب 0 في حالة وجود كاري 
-        
-        current = current.next;
-
-        if (l1 !== null) l1 = l1.next;
-        if (l2 !== null) l2 = l2.next;
-
-    }
-    return l3.next;
-};
+1/**
+2 * Definition for singly-linked list.
+3 * function ListNode(val, next) {
+4 *     this.val = (val===undefined ? 0 : val)
+5 *     this.next = (next===undefined ? null : next)
+6 * }
+7 */
+8/**
+9 * @param {ListNode} l1
+10 * @param {ListNode} l2
+11 * @return {ListNode}
+12 */
+13var addTwoNumbers = function(l1, l2) {
+14    let l3 =new ListNode(0);
+15    let current = l3
+16    let carry = 0;
+17    while(l1!=null||l2!=null||carry!==0){
+18         let x = l1 ? l1.val : 0;
+19        let y = l2 ? l2.val : 0;
+20        
+21        let sum = x + y + carry;
+22        carry = Math.floor(sum / 10);
+23
+24        current.next = new ListNode(sum % 10);
+25        current = current.next;
+26
+27        if (l1 !== null) l1 = l1.next;
+28        if (l2 !== null) l2 = l2.next;
+29
+30    }
+31    return l3.next;
+32};
